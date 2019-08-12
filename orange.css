@@ -1,0 +1,125 @@
+/* 
+============================================
+*  Description: 觅诚项目样式库
+*  Author: 张功睿
+*  Version: 1.0.0
+*  Edit: 2019-08-11 14:40
+*  LastEdit: 2019-08-12 13:52
+============================================
+*/
+
+/* 基础颜色
+============================================ */
+:root {
+  --blue: #3f80cc;
+  --orange: #e5931e;
+}
+
+.font-orange {
+  color: var(--orange);
+}
+
+.font-blue {
+  color: var(--blue);
+}
+
+.bg-blue {
+  background-color: var(--blue);
+}
+
+/* 弹性布局
+============================================ */
+
+/* 默认水平方向 */
+.flex {
+  display: flex;
+}
+
+/* 垂直方向 */
+.flex-y {
+  display: flex;
+  flex-direction: row;
+}
+
+/* 水平居中 */
+.flex-x-c {
+  display: flex;
+  justify-content: center;
+}
+
+/* 水平两端对齐 */
+.flex-x-b {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 水平平均分布 */
+.flex-x-a {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* 垂直居中 */
+.flex-y-c {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* o-header
+============================================ */
+header {
+  position: relative;
+  width: 100%;
+  height: 1rem;
+  background-color: var(--blue);
+  color: #fff;
+  font-size: 0.36rem;
+  line-height: 1rem;
+}
+
+.o-header-title {
+  position: absolute;
+  width: auto;
+  text-align: center;
+  left: 0;
+  right: 0;
+}
+
+.o-header-left {
+  position: absolute;
+  left: 0;
+  padding-left: 0.3rem;
+  z-index: 2;
+}
+
+.o-header-right {
+  position: absolute;
+  right: 0;
+  padding-right: 0.3rem;
+}
+
+.o-header-btn {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.o-header-left .o-header-btn {
+  margin-right: 0.2rem;
+}
+
+.o-header-right .o-header-btn {
+  margin-left: 0.2rem;
+}
+
+.o-header-btn::before {
+  font-size: 0.5rem;
+}
+
+.icon-fanhui::before {
+  font-size: 0.4rem;
+}
+
+.icon-tuichu::before {
+  font-size: 0.4rem;
+}
