@@ -30,6 +30,7 @@ new Vue({
 ```
 
 #### API
+Props
 |参数|说明|类型|默认值|
 |---|---|---|---|
 |header|数据对象|Object|-|
@@ -65,6 +66,7 @@ new Vue({
 })
 ```
 #### API
+Props
 |参数|说明|类型|默认值|
 |---|---|---|---|
 |tabs|包含所有tab的数组|Array|-|
@@ -72,3 +74,7 @@ new Vue({
 |tab.icon|tab的iconfont类名|String|-|
 |tab.color|tab的CSS颜色变量名|String|-|
 |tab.isActive|tab的激活状态|Boolean|false|
+Events
+|事件名|说明|参数|
+|---|---|---|
+|change-tab|点击tab时触发|tab对象|
