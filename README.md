@@ -7,7 +7,7 @@
 ## 组件
 ### header 导航栏
 #### 基础用法
-`<o-header :header="obj"></o-header>`
+`<o-header :header="header"></o-header>`
 ```
 new Vue({
   el: '#app',
@@ -34,3 +34,41 @@ new Vue({
 |---|---|---|---|
 |header|数据对象|Object|-|
 |back|是否打开返回按钮|Boolean|false|
+
+### tab-card 标签卡片
+#### 基础用法
+```
+<o-tab-card 
+  :tabs="tabs"
+  @change-tab="func"
+></o-tab-card>
+```
+```
+new Vue({
+  el: '#app',
+  data: {
+    tabs: [
+      { 
+        title: '意向客户', 
+        icon: 'icon-nav_promoter', 
+        color: '--blue', 
+        isActive: true 
+       },
+    ]
+  },
+  methods: {
+    func: function(obj) {
+      // obj 是被点击的 tab 对象
+      // your code
+    }
+  }
+})
+```
+#### API
+|参数|说明|类型|默认值|
+|---|---|---|---|
+|tabs|包含所有tab的数组|Array|-|
+|tab.title|tab标题|String|-|
+|tab.icon|tab的iconfont类名|String|-|
+|tab.color|tab的CSS颜色变量名|String|-|
+|tab.isActive|tab的激活状态|Boolean|false|
