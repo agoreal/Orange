@@ -2,9 +2,9 @@
 ============================================
 *  Description: 觅诚项目样式库
 *  Author: 张功睿
-*  Version: 1.0.0
+*  Version: 1.0.4
 *  Edit: 2019-08-11 14:40
-*  LastEdit: 2019-08-13 14:30
+*  LastEdit: 2019-08-13 18:14
 ============================================
 */
 
@@ -15,6 +15,8 @@
   --blue: #3f80cc;
   --orange: #e5931e;
   --light-red: #e26a6a;
+  --green: #4caf50;
+  --yellow: #ffc107;
   --grey-1: #f8f8f8;
   /* font */
   --font-l: 0.36rem;
@@ -43,6 +45,7 @@
 html, body {
   background-color: var(--grey-1);
   width: 100%;
+  overflow: hidden;
 }
 
 [v-cloack] {
@@ -282,4 +285,74 @@ header {
 .o-button-plain.o-button--light-red {
   color: var(--light-red);
   border: 1px solid var(--light-red);
+}
+
+/* o-tab-card
+============================================ */
+/* 基础 */
+.o-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 0.26rem;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+/* 标题 */
+.o-field {
+  background-color: #fff;
+}
+
+.o-field label {
+  width: 1rem;
+  background-color: #fff;
+  padding: .1rem .2rem;
+}
+
+/* 内容区 */
+.o-field-value {
+  display: flex;
+  flex: 1;
+  padding: .3rem .2rem;
+  background-color: #fff;
+}
+
+/* 输入区 */
+.o-field-core {
+  appearance: none;
+  border-radius: 0;
+  border: 0;
+  flex: 1;
+  outline: 0;
+  line-height: 1.6;
+  font-size: inherit;
+  width: 100%;
+}
+
+.o-field-core::placeholder {
+  color: #aaa;
+}
+
+/* 清除按钮 */
+.o-field-clear {
+  margin-left: .1rem;
+  opacity: .3;
+}
+
+/* 状态图标 */
+.o-field-state {
+  margin-left: .1rem;
+}
+.o-field-state.is-success i::before {
+  color: var(--green);
+}
+.o-field-state.is-error i::before {
+  color: var(--light-red);
+}
+.o-field-state.is-warning i::before {
+  color: var(--yellow);
 }
