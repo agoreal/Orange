@@ -4,7 +4,7 @@
 *  Author: 张功睿
 *  Version: 1.0.0
 *  Edit: 2019-08-12 10:49
-*  LastEdit: 2019-08-12 17:42
+*  LastEdit: 2019-08-13 14:30
 ============================================
 */
 var templates = {}
@@ -59,6 +59,25 @@ templates.oTabCard = '\
   </div>\
 '
 
+templates.oButton = '\
+  <button\
+    class="o-button"\
+    :class="[\'o-button--\' + color, \'o-button--\' + size, {\
+      \'o-button-disabled\': disabled,\
+      \'o-button-plain\': plain\
+    }]"\
+    @click="handleClick"\
+    :disabled="disabled"\
+  >\
+    <span class="o-button-icon" v-if="icon || $slots.icon">\
+      <slot name="icon">\
+        <i v-if="icon" class="iconfont" :class="icon"></i>\
+      </slot >\
+    </span>\
+    <lable class="o-button-text"><slot></slot></lable>\
+  </button>\
+'
+
 Vue.component('o-header', {
   template: templates.oHeader,
   props: {
@@ -76,5 +95,40 @@ Vue.component('o-tab-card', {
   template: templates.oTabCard,
   props: {
     tabs: Object
+  }
+})
+
+Vue.component('o-button', {
+  template: templates.oButton,
+  props: {
+    disabled: Boolean,
+    icon: String,
+    plain: Boolean,
+    color: {
+      type: String,
+      default: 'blue',
+      validator: function (value) {
+        return [
+          'light-red',
+          'blue'
+        ].indexOf(value) > -1
+      }
+    },
+    size: {
+      type: String,
+      default: 'normal',
+      validator: function (value) {
+        return [
+          'large',
+          'normal',
+          'small'
+        ].indexOf(value) > -1
+      }
+    }
+  },
+  methods: {
+    handleClick: function (event) {
+      this.$emit('click', event)
+    }
   }
 })
