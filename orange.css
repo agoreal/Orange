@@ -4,7 +4,7 @@
 *  Author: 张功睿
 *  Version: 1.0.0
 *  Edit: 2019-08-11 14:40
-*  LastEdit: 2019-08-12 17:42
+*  LastEdit: 2019-08-13 14:30
 ============================================
 */
 
@@ -19,6 +19,7 @@
   /* font */
   --font-l: 0.36rem;
   --font-m: 0.26rem; 
+  --font-s: 0.20rem; 
 }
 
 .font-orange {
@@ -33,10 +34,25 @@
   background-color: var(--blue);
 }
 
+.font-m {
+  font-size: var(--font-m);
+}
+
 /* 根元素设置
 ============================================ */
 html, body {
   background-color: var(--grey-1);
+  width: 100%;
+}
+
+[v-cloack] {
+  display: none;
+}
+
+/* 容器
+============================================ */
+.wrap {
+  margin: 0 0.3rem;
 }
 
 /* 阴影
@@ -167,7 +183,6 @@ header {
 .tab-card {
   position: relative;
   background-color: #fff;
-  margin: 0 0.3rem;
   padding: 0.3rem 0;
   border-radius: 0.05rem;
   z-index: 2;
@@ -188,4 +203,83 @@ header {
 .tab-card-tab-title {
   font-size: var(--font-m);
   margin-top: 0.2rem;
+}
+
+/* 基本 */
+.o-button {
+  appearance: none;
+  border-radius: 0.04rem;
+  border: 0;
+  box-sizing: border-box;
+  color: inherit;
+  display: block;
+  font-size: var(--font-m);
+  height: .8rem;
+  outline: 0;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+/* 点击效果 */
+.o-button::after {
+  background-color: #000;
+  content: " ";
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.o-button:not(.o-button-disabled):active::after {
+  opacity: .2;
+}
+
+/* 颜色 */
+.o-button--blue {
+  background-color: var(--blue);
+  color: #fff;
+}
+
+.o-button--light-red {
+  background-color: var(--light-red);
+  color: #fff;
+}
+
+/* 尺寸 */
+.o-button--large {
+  width: 100%;
+  font-size: var(--font-l);
+}
+
+.o-button--normal {
+  padding: 0 .3rem;
+}
+
+.o-button--small {
+  font-size: var(--font-s);
+  height: .6rem;
+  padding: 0 .2rem;
+}
+
+/* 禁用 */
+.o-button-disabled {
+  opacity: .35;
+}
+
+/* 幽灵按钮 */
+.o-button-plain {
+  background-color: transparent;
+}
+
+.o-button-plain.o-button--blue {
+  color: var(--blue);
+  border: 1px solid var(--blue);
+}
+
+.o-button-plain.o-button--light-red {
+  color: var(--light-red);
+  border: 1px solid var(--light-red);
 }
