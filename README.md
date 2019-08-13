@@ -82,3 +82,51 @@ Events
 |事件名|说明|参数|
 |---|---|---|
 |change-tab|点击tab时触发|tab对象|
+### Button 按钮
+![image](https://agoreal.github.io/asset/button.jpg)
+#### 基础用法
+改变颜色
+```
+<o-button color="blue">blue</o-button>
+<o-button color="light-red">light-red</o-button>
+```
+改变大小
+```
+<o-button size="large">large</o-button>
+<o-button size="normal">normal</o-button>
+<o-button size="small">small</o-button>
+```
+禁用按钮
+```
+<o-button disabled>disabled</o-button>
+```
+线框按钮
+```
+<o-button plain>plain</o-button>
+```
+带图标
+```
+<o-button icon="icon-back">icon</o-button>
+```
+自定义图标
+```
+<o-button>
+  <img src="picture.jpg" width="20" height="20" slot="icon">
+  自定义图标
+</o-button>
+```
+#### API
+|参数|说明|类型|可选值|默认值|
+|---|---|---|---|---|
+|color|颜色|String|blue, light-red|blue|
+|size|尺寸|String|large, normal, small|normal|
+|plain|线框按钮|Boolean|true, false|false|
+|disabled|禁用|Boolean|true, false|false|
+|icon|图标，字体类名|String|icon-xxx|-|
+
+#### Slot
+|name|描述|
+|---|---|
+|-|按钮的文本内容|
+|icon|自定义的图标|
+
