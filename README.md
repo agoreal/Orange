@@ -83,7 +83,7 @@ Events
 |---|---|---|
 |change-tab|点击tab时触发|tab对象|
 ### Button 按钮
-![image](https://agoreal.github.io/asset/button.jpg)
+![image](https://github.com/agoreal/Orange/blob/master/asset/button.jpg?raw=true)
 #### 基础用法
 改变颜色
 ```
@@ -130,3 +130,46 @@ Events
 |-|按钮的文本内容|
 |icon|自定义的图标|
 
+### Field 输入框
+![image](https://github.com/agoreal/Orange/blob/master/asset/field.jpg?raw=true)
+#### 例子
+基础用法
+```
+<o-field label="用户名" placeholder="请输入用户名" v-model="username"></o-field>
+<o-field label="邮箱" placeholder="请输入邮箱" type="email" v-model="email"></o-field>
+<o-field label="密码" placeholder="请输入密码" type="password" v-model="password"></o-field>
+<o-field label="手机号" placeholder="请输入手机号" type="tel" v-model="phone"></o-field>
+<o-field label="网站" placeholder="请输入网址" type="url" v-model="website"></o-field>
+<o-field label="数字" placeholder="请输入数字" type="number" v-model="number"></o-field>
+<o-field label="生日" placeholder="请输入生日" type="date" v-model="birthday"></o-field>
+<o-field label="自我介绍" placeholder="自我介绍" type="textarea" rows="4" v-modal="introduction"></o-field>
+```
+设置校验状态
+```
+<o-field label="邮箱" state="success" v-model="email"></o-field>
+<o-field label="邮箱" state="error" v-model="email"></o-field>
+<o-field label="邮箱" state="warning" v-model="email"></o-field>
+```
+自定义内容（例如添加验证码、icon、图片）
+```
+<o-field label="验证码" v-model="captcha">
+  <img src="../assets/100x100.png" height="45px" width="100px">
+</o-field>
+```
+#### API
+|参数|说明|类型|可选值|默认值|
+|---|---|---|---|---|
+|type|输入框类型|String|text, number, email, url, tel, date, datetime, password, textarea|text|
+|label|标签|String|-|-|
+|value|绑定表单输入值|String|-|-|
+|rows|类型为 textarea 时可指定高度（显示行数）|Number|-|-|
+|placeholder|占位内容|String|-|-|
+|disableClear|禁用 clear 按钮|Booean|-|false|
+|readonly|只读|Booean|-|false|
+|disabled|禁用|Booean|-|false|
+|state|校验状态|String|error, success, warning|-|
+|attr|设置原生属性，例如 :attr="{ maxlength: 10 }"|Object|-|-|
+#### Slot
+|name|描述|
+|---|---|
+|-|显示HTML内容|
