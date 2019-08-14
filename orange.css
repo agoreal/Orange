@@ -1,10 +1,10 @@
-/* 
+/*
 ============================================
 *  Description: 觅诚项目样式库
 *  Author: 张功睿
 *  Version: 1.0.4
 *  Edit: 2019-08-11 14:40
-*  LastEdit: 2019-08-13 18:14
+*  LastEdit: 2019-08-14 14:59
 ============================================
 */
 
@@ -20,8 +20,8 @@
   --grey-1: #f8f8f8;
   /* font */
   --font-l: 0.36rem;
-  --font-m: 0.26rem; 
-  --font-s: 0.20rem; 
+  --font-m: 0.26rem;
+  --font-s: 0.20rem;
 }
 
 .font-orange {
@@ -43,9 +43,7 @@
 /* 根元素设置
 ============================================ */
 html, body {
-  background-color: var(--grey-1);
   width: 100%;
-  overflow: hidden;
 }
 
 [v-cloack] {
@@ -355,4 +353,31 @@ header {
 }
 .o-field-state.is-warning i::before {
   color: var(--yellow);
+}
+
+/* o-checkbox
+============================================ */
+/* 基础 */
+.o-checkbox {
+  font-size: var(--font-m);
+}
+
+.o-checkbox-label {
+  display: flex;
+  align-items: center;
+  display: inline-block;
+}
+
+.o-checkbox-input {
+  display: none;
+}
+
+/* icon 尺寸设置 */
+.o-checkbox-icon .iconfont {
+  font-size: .38rem;
+  color: var(--blue);
+}
+
+.o-checkbox-icon .icon-quan {
+  color: #dbdbdb;
 }
