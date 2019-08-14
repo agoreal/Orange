@@ -4,7 +4,7 @@
 *  Author: 张功睿
 *  Version: 1.0.5
 *  Edit: 2019-08-12 10:49
-*  LastEdit: 2019-08-14 14:58
+*  LastEdit: 2019-08-14 17:17
 ============================================
 */
 var templates = {}
@@ -151,6 +151,26 @@ templates.oCheckBox = ['\
       <span class="o-checkbox-label" v-text="option.label"></span>\
     </label>\
   </div >\
+']
+templates.oAvatar = ['\
+  <div\
+    class="o-avatar flex-c"\
+    :class="\'o-avatar-\' + size"\
+  >\
+    <img\
+      :src="src"\
+      :class="\'o-avatar-\' + size"\
+      v-if="src"\
+    >\
+    <div\
+      class="o-avatar-default flex-c"\
+      :class="\'o-avatar-\' + size"\
+      :style="{backgroundColor: color}"\
+      v-else\
+    >\
+      <i class="iconfont icon-avatar"></i>\
+    </div>\
+  </div>\
 ']
 
 Vue.component('o-header', {
@@ -299,4 +319,26 @@ Vue.component('o-checkbox', {
       this.$emit('input', val)
     }
   }
+})
+
+Vue.component('o-avatar', {
+  template: templates.oAvatar[0],
+  props: {
+    src: String,
+    size: {
+      type: String,
+      default: 'normal',
+      validator: function (value) {
+        return [
+          'small',
+          'normal',
+          'large'
+        ].indexOf(value) > -1
+      },
+    },
+    color: {
+      type: String,
+      default: 'var(--blue)'
+    }
+  },
 })
