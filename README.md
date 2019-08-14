@@ -200,3 +200,15 @@ new Vue({
 |option.value|复选框选中时的值|String|-|-|
 |value|绑定值|Array|-|-|
 |margin|按钮与标签之间的距离，单位rem|Number|-|0.1|
+### Avatar 头像
+!image(https://github.com/agoreal/Orange/blob/master/asset/avatar.jpg?raw=true)
+#### 基本用法
+```
+<o-avatar src="图片地址"></o-avatar>
+```
+####API
+|参数|说明|类型|可选值|默认值|
+|---|---|---|---|---|
+|src|图片地址|String|-|-|
+|color|默认头像的背景色，CSS值|-|var(--blue)|
+|size|头像尺寸|String|large,normal,small|normal|
