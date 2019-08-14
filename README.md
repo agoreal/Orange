@@ -173,3 +173,30 @@ Events
 |name|描述|
 |---|---|
 |-|显示HTML内容|
+### Checkbox 复选框
+#### 基本用法
+```
+<o-checkbox
+  :option="option"
+  v-model="value">
+</o-checkbox>
+```
+```
+new Vue({
+  el: '#app',
+  data: {
+    option: {
+      label: '标签名',
+      value: '选中时的值'
+    }
+  }
+})
+```
+#### API
+|参数|说明|类型|可选值|默认值|
+|---|---|---|---|---|
+|option|复选框配置对象|Object|-|-|
+|option.label|复选框标签|String|-|-|
+|option.value|复选框选中时的值|String|-|-|
+|value|绑定值|Array|-|-|
+|margin|按钮与标签之间的距离，单位rem|Number|-|0.1|
