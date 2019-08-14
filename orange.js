@@ -2,9 +2,9 @@
 ============================================
 *  Description: 觅诚项目组件库
 *  Author: 张功睿
-*  Version: 1.0.4
+*  Version: 1.0.5
 *  Edit: 2019-08-12 10:49
-*  LastEdit: 2019-08-13 18:16
+*  LastEdit: 2019-08-14 14:58
 ============================================
 */
 var templates = {}
@@ -123,13 +123,33 @@ templates.oField = ['\
         v-if="state"\
       >\
         <i class="iconfont" :class="[{\
-          \'icon-wuuiconxuan\': state === \'success\',\
+          \'icon-check\': state === \'success\',\
           \'icon-guanbi\': state === \'error\',\
           \'icon-jinggao\': state === \'warning\'\
         }]"></i>\
       </span>\
       <div class="o-field-other"><slot></slot></div>\
     </div>\
+  </div >\
+']
+templates.oCheckBox = ['\
+  <div \
+    class="o-checkbox"\
+    @change="$emit(\'change\', currentValue)"\
+  >\
+    <label class="o-checkbox-label">\
+      <input\
+        class="o-checkbox-input"\
+        type="checkbox"\
+        v-model="currentValue"\
+        :value="option.value"\
+      >\
+      <span class="o-checkbox-icon" :style="{\'margin-right\': margin + \'rem\'}">\
+        <i class="iconfont icon-quan" v-show="currentValue.indexOf(option.value) === -1"></i>\
+        <i class="iconfont icon-check" v-show="currentValue.indexOf(option.value) > -1"></i>\
+      </span >\
+      <span class="o-checkbox-label" v-text="option.label"></span>\
+    </label>\
   </div >\
 ']
 
@@ -249,6 +269,34 @@ Vue.component('o-field', {
           })
         })
       }
+    }
+  }
+})
+
+Vue.component('o-checkbox', {
+  template: templates.oCheckBox[0],
+  props: {
+    option: {
+      type: Object,
+      required: true,
+    },
+    value: Array,
+    margin: {
+      type: Number,
+      default: 0.1
+    }
+  },
+  data: function () {
+    return {
+      currentValue: this.value
+    }
+  },
+  watch: {
+    value: function (val) {
+      this.currentValue = val
+    },
+    currentValue: function (val) {
+      this.$emit('input', val)
     }
   }
 })
