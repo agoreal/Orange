@@ -2,9 +2,9 @@
 ============================================
 *  Description: 觅诚项目组件库
 *  Author: 张功睿
-*  Version: 1.0.5
+*  Version: 1.0.7
 *  Edit: 2019-08-12 10:49
-*  LastEdit: 2019-08-14 17:17
+*  LastEdit: 2019-08-16 15:25
 ============================================
 */
 var templates = {}
@@ -172,6 +172,43 @@ templates.oAvatar = ['\
     </div>\
   </div>\
 ']
+templates.oMask = ['\
+  <div\
+    class="o-mask"\
+    :style="{\'z-index\': zIndex }"\
+    v-show="show"\
+    @touchmove.prevent\
+    @click.self="$emit(\'close\')"\
+  >\
+    <slot></slot>\
+  </div>\
+']
+templates.oPopup = ['\
+  <o-mask\
+    :show="show"\
+    :class="{\
+      \'flex-c\': position === \'center\',\
+    }"\
+    @close="$emit(\'close\')"\
+  >\
+    <div\
+      class="o-popup"\
+      :class="{\'o-popup-bottom\': position === \'bottom\'}"\
+    >\
+      <div\
+        class="o-popup-close"\
+        @click="$emit(\'close\')"\
+      >\
+        <i class="iconfont icon-close"></i>\
+      </div>\
+      <div class="o-popup-head" v-if="title">\
+        <h3>{{ title }}</h3>\
+      </div>\
+      <slot></slot>\
+    </div>\
+  </o-mask>\
+']
+
 
 Vue.component('o-header', {
   template: templates.oHeader[0],
@@ -341,4 +378,30 @@ Vue.component('o-avatar', {
       default: 'var(--blue)'
     }
   },
+})
+
+Vue.component('o-mask', {
+  template: templates.oMask[0],
+  props: {
+    zIndex: Number,
+    show: Boolean
+  },
+})
+
+Vue.component('o-popup', {
+  template: templates.oPopup[0],
+  props: {
+    show: Boolean,
+    position: {
+      type: String,
+      default: 'center',
+      validator: function (value) {
+        return [
+          'center',
+          'bottom'
+        ].indexOf(value) > -1
+      }
+    },
+    title: String
+  }
 })
