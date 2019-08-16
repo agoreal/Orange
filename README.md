@@ -206,9 +206,52 @@ new Vue({
 ```
 <o-avatar src="图片地址"></o-avatar>
 ```
-####API
+#### API
 |参数|说明|类型|可选值|默认值|
 |---|---|---|---|---|
 |src|图片地址|String|-|-|
 |color|默认头像的背景色，CSS值|-|var(--blue)|
 |size|头像尺寸|String|large,normal,small|normal|
+
+### Popup
+#### 基本用法
+```
+<o-popup
+  :show="show"
+  title="标题"
+  @close="close"
+></o-popup>
+```
+```
+data: {
+  show: true
+},
+methods: {
+  close: function () {
+    // your code
+  }
+}
+```
+由于 apicloud 的 window + frame 开发模式，弹窗只能新打开一个 frame 实现，需要调用 util.js 里面的 `openPopup(_popup, _title, _position, _obj)`方法 
+
+|参数|说明|类型|默认值|
+|---|---|---|---|
+|`_popup`|弹窗内容名|String|必须|
+|`_title`|弹窗标题|String|-|
+|`_position`|弹窗位置|String|center|
+|`_obj`|自定义参数|Object|-|
+
+#### API
+Props
+
+|参数|说明|类型|可选值|默认值|
+|---|---|---|---|---|
+|show|是否展示弹出窗|Boolean|true, false|false|
+|positon|弹出窗位置|String|center,bottom|
+|title|弹出层标题|String|-|-|
+
+Events
+
+|事件名|说明|
+|---|---|
+|close|关闭弹窗与遮罩层|
