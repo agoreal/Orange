@@ -201,7 +201,7 @@ new Vue({
 |value|绑定值|Array|-|-|
 |margin|按钮与标签之间的距离，单位rem|Number|-|0.1|
 ### Avatar 头像
-!image(https://github.com/agoreal/Orange/blob/master/asset/avatar.jpg?raw=true)
+![image](https://github.com/agoreal/Orange/blob/master/asset/avatar.jpg?raw=true)
 #### 基本用法
 ```
 <o-avatar src="图片地址"></o-avatar>
