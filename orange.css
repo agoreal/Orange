@@ -4,15 +4,18 @@
 *  Author: 张功睿
 *  Version: 1.0.6
 *  Edit: 2019-08-11 14:40
-*  LastEdit: 2019-08-14 17:16
+*  LastEdit: 2019-08-16 15:26
 ============================================
 */
 
 /* 基础设置
 ============================================ */
+
 :root {
   /* color */
   --blue: #3f80cc;
+  --blue2: #bbdbff;
+  /* 浅蓝色 */
   --orange: #e5931e;
   --light-red: #e26a6a;
   --green: #4caf50;
@@ -42,7 +45,9 @@
 
 /* 根元素设置
 ============================================ */
-html, body {
+
+html,
+body {
   width: 100%;
 }
 
@@ -52,49 +57,57 @@ html, body {
 
 /* 容器
 ============================================ */
+
 .wrap {
   margin: 0 0.3rem;
 }
 
 /* 阴影
 ============================================ */
+
 .box-shadow {
-  box-shadow: 0 0 0.5rem 0 rgba(175, 175, 175, 0.5);
+  box-shadow: 0 0 0.15rem 0 rgba(175, 175, 175, 0.25);
 }
 
 /* 弹性布局
 ============================================ */
 
 /* 默认水平方向 */
+
 .flex {
   display: flex;
 }
 
 /* 垂直方向 */
+
 .flex-y {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 /* 水平居中 */
+
 .flex-x-c {
   display: flex;
   justify-content: center;
 }
 
 /* 水平两端对齐 */
+
 .flex-x-b {
   display: flex;
   justify-content: space-between;
 }
 
 /* 水平平均分布 */
+
 .flex-x-a {
   display: flex;
   justify-content: space-around;
 }
 
 /* 垂直居中 */
+
 .flex-y-c {
   display: flex;
   flex-direction: column;
@@ -102,6 +115,7 @@ html, body {
 }
 
 /* 水平垂直居中 */
+
 .flex-c {
   display: flex;
   justify-content: center;
@@ -110,6 +124,7 @@ html, body {
 
 /* o-header
 ============================================ */
+
 header {
   position: relative;
   top: 0;
@@ -170,6 +185,7 @@ header {
 
 /* o-tab-card
 ============================================ */
+
 .header-tab {
   position: relative;
 }
@@ -207,6 +223,7 @@ header {
 }
 
 /* 基本 */
+
 .o-button {
   appearance: none;
   border-radius: 0.04rem;
@@ -223,6 +240,7 @@ header {
 }
 
 /* 点击效果 */
+
 .o-button::after {
   background-color: #000;
   content: " ";
@@ -239,6 +257,7 @@ header {
 }
 
 /* 颜色 */
+
 .o-button--blue {
   background-color: var(--blue);
   color: #fff;
@@ -250,6 +269,7 @@ header {
 }
 
 /* 尺寸 */
+
 .o-button--large {
   width: 100%;
   font-size: var(--font-l);
@@ -266,11 +286,13 @@ header {
 }
 
 /* 禁用 */
+
 .o-button-disabled {
   opacity: .35;
 }
 
 /* 幽灵按钮 */
+
 .o-button-plain {
   background-color: transparent;
 }
@@ -287,7 +309,9 @@ header {
 
 /* o-tab-card
 ============================================ */
+
 /* 基础 */
+
 .o-field {
   position: relative;
   display: flex;
@@ -301,6 +325,7 @@ header {
 }
 
 /* 标题 */
+
 .o-field {
   background-color: #fff;
 }
@@ -312,6 +337,7 @@ header {
 }
 
 /* 内容区 */
+
 .o-field-value {
   display: flex;
   flex: 1;
@@ -320,6 +346,7 @@ header {
 }
 
 /* 输入区 */
+
 .o-field-core {
   appearance: none;
   border-radius: 0;
@@ -336,28 +363,35 @@ header {
 }
 
 /* 清除按钮 */
+
 .o-field-clear {
   margin-left: .1rem;
   opacity: .3;
 }
 
 /* 状态图标 */
+
 .o-field-state {
   margin-left: .1rem;
 }
+
 .o-field-state.is-success i::before {
   color: var(--green);
 }
+
 .o-field-state.is-error i::before {
   color: var(--light-red);
 }
+
 .o-field-state.is-warning i::before {
   color: var(--yellow);
 }
 
 /* o-checkbox
 ============================================ */
+
 /* 基础 */
+
 .o-checkbox {
   font-size: var(--font-m);
 }
@@ -373,6 +407,7 @@ header {
 }
 
 /* icon 尺寸设置 */
+
 .o-checkbox-icon .iconfont {
   font-size: .38rem;
   color: var(--blue);
@@ -384,7 +419,9 @@ header {
 
 /* o-avatar
 ============================================ */
+
 /* 基础 */
+
 .o-avatar {
   border-radius: 50%;
   overflow: hidden;
@@ -392,29 +429,102 @@ header {
 }
 
 /* 头像尺寸 */
+
 .o-avatar-large {
-  width: 0.96rem;
-  height: 0.96rem;
+  width: 1.28rem;
+  height: 1.28rem;
 }
+
 .o-avatar-normal {
   width: 0.8rem;
   height: 0.8rem;
 }
+
 .o-avatar-small {
   width: 0.64rem;
   height: 0.64rem;
 }
 
 /* 默认头像 */
+
 .o-avatar-default {
   color: #fff;
 }
+
 .o-avatar-large i::before {
   font-size: 0.5rem;
 }
+
 .o-avatar-normal i::before {
   font-size: 0.4rem;
 }
+
 .o-avatar-small i::before {
   font-size: 0.3rem;
+}
+
+/* o-mask
+============================================ */
+
+.o-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .6);
+  z-index: 200;
+}
+
+/* o-popup
+============================================ */
+
+.o-popup {
+  width: 92%;
+  height: 10rem;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: .1rem;
+  position: relative;
+}
+
+.o-popup-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: .3rem .3rem 0 0;
+}
+
+.o-popup-close i {
+  display: block;
+  color: #cdcdcd;
+  font-size: .25rem;
+}
+
+.o-popup-head {
+  font-size: .3rem;
+  font-weight: normal;
+  text-align: center;
+  padding: .3rem 0;
+  border-bottom: 1px solid #ededed;
+}
+
+.o-popup-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-radius: .1rem .1rem 0 0;
+}
+
+
+/* 动画
+============================================================ */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
