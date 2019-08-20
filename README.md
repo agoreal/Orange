@@ -36,6 +36,15 @@ Props
 |---|---|---|---|
 |header|数据对象|Object|-|
 |back|是否打开返回按钮|Boolean|false|
+|color|header 的字体颜色|String|#fff|
+|background|header 的背景颜色|String|var(--primary-color)|
+
+Slot
+
+|name|描述|
+|---|---|
+|left|左边按钮|
+|right|右边按钮|
 
 ### tab-card 标签卡片
 #### 基础用法
@@ -210,7 +219,8 @@ new Vue({
 |参数|说明|类型|可选值|默认值|
 |---|---|---|---|---|
 |src|图片地址|String|-|-|
-|color|默认头像的背景色，CSS值|-|var(--blue)|
+|bg|默认头像的背景色，CSS值|-|#fff|
+|color|默认头像的颜色，CSS值|-|#ccc|
 |size|头像尺寸|String|large,normal,small|normal|
 
 ### Popup
