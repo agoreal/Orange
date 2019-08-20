@@ -2,15 +2,21 @@
 ============================================
 *  Description: 觅诚项目组件库
 *  Author: 张功睿
-*  Version: 1.0.7
+*  Version: 1.1.0
 *  Edit: 2019-08-12 10:49
-*  LastEdit: 2019-08-16 15:25
+*  LastEdit: 2019-08-20 11:23
 ============================================
 */
 var templates = {}
 
 templates.oHeader = ['\
-  <header>\
+  <header\
+    class="o-header"\
+    :style="{\
+      color: color,\
+      background: background\
+    }"\
+  >\
     <div class="o-header-left">\
       <span\
         class="o-header-btn iconfont"\
@@ -19,9 +25,13 @@ templates.oHeader = ['\
         @click="btn.handler"\
       >\
       </span>\
-      <span class="o-header-btn iconfont icon-fanhui" v-if="back" @click="closeWin"></span>\
+      <slot name="left"></slot>\
+      <span class="o-header-btn iconfont icon-back" v-if="back" @click="closeWin"></span>\
     </div >\
-    <div class="o-header-title">{{ header.title }}</div>\
+    <div class="o-header-title">\
+      <span v-if="header.title">{{ header.title }}</span>\
+      <img :src="header.logo" v-if="header.logo">\
+    </div>\
     <div class="o-header-right">\
       <span\
         class="o-header-btn iconfont"\
@@ -30,6 +40,7 @@ templates.oHeader = ['\
         @click="btn.handler"\
       >\
       </span>\
+      <slot name="right"></slot>\
     </div>\
   </header>\
 ']
@@ -165,7 +176,7 @@ templates.oAvatar = ['\
     <div\
       class="o-avatar-default flex-c"\
       :class="\'o-avatar-\' + size"\
-      :style="{backgroundColor: color}"\
+      :style="{color: color, background: bg}"\
       v-else\
     >\
       <i class="iconfont icon-avatar"></i>\
@@ -177,7 +188,6 @@ templates.oMask = ['\
     class="o-mask"\
     :style="{\'z-index\': zIndex }"\
     v-show="show"\
-    @touchmove.prevent\
     @click.self="$emit(\'close\')"\
   >\
     <slot></slot>\
@@ -214,7 +224,15 @@ Vue.component('o-header', {
   template: templates.oHeader[0],
   props: {
     header: Object,
-    back: Boolean
+    back: Boolean,
+    color: {
+      type: String,
+      default: '#fff'
+    },
+    background: {
+      type: String,
+      default: 'var(--primary-color)'
+    }
   },
   methods: {
     closeWin: function () {
@@ -375,7 +393,11 @@ Vue.component('o-avatar', {
     },
     color: {
       type: String,
-      default: 'var(--blue)'
+      default: '#ccc'
+    },
+    bg: {
+      type: String,
+      default: '#fff'
     }
   },
 })
