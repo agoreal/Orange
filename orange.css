@@ -2,9 +2,9 @@
 ============================================
 *  Description: 觅诚项目样式库
 *  Author: 张功睿
-*  Version: 1.0.6
+*  Version: 1.1.0
 *  Edit: 2019-08-11 14:40
-*  LastEdit: 2019-08-16 15:26
+*  LastEdit: 2019-08-20 11:23
 ============================================
 */
 
@@ -13,14 +13,16 @@
 
 :root {
   /* color */
-  --blue: #3f80cc;
-  --blue2: #bbdbff;
-  /* 浅蓝色 */
+  --primary-color: #f8cf65;
+  --primary-light-color: #f5d480;
   --orange: #e5931e;
   --light-red: #e26a6a;
   --green: #4caf50;
   --yellow: #ffc107;
-  --grey-1: #f8f8f8;
+  /* text */
+  --major-text: #242424;
+  --helper-text: #666666;
+  --disable-text: #a1a1a1;
   /* font */
   --font-l: 0.36rem;
   --font-m: 0.26rem;
@@ -33,6 +35,10 @@
 
 .font-blue {
   color: var(--blue);
+}
+
+.font-red {
+  color: var(--light-red)
 }
 
 .bg-blue {
@@ -49,6 +55,9 @@
 html,
 body {
   width: 100%;
+  height: 100%;
+  font-size: var(--font-m);
+  color: var(--major-text);
 }
 
 [v-cloack] {
@@ -106,6 +115,11 @@ body {
   justify-content: space-around;
 }
 
+.flex-aic {
+  display: flex;
+  align-items: center;
+}
+
 /* 垂直居中 */
 
 .flex-y-c {
@@ -125,14 +139,12 @@ body {
 /* o-header
 ============================================ */
 
-header {
+.o-header {
   position: relative;
   top: 0;
   left: 0;
   width: 100%;
   height: 1rem;
-  background-color: var(--blue);
-  color: #fff;
   font-size: 0.36rem;
   line-height: 1rem;
 }
@@ -143,6 +155,10 @@ header {
   text-align: center;
   left: 0;
   right: 0;
+}
+
+.o-header-title img {
+  height: .45rem;
 }
 
 .o-header-left {
@@ -172,14 +188,6 @@ header {
 }
 
 .o-header-btn::before {
-  font-size: 0.5rem;
-}
-
-.icon-fanhui::before {
-  font-size: 0.4rem;
-}
-
-.icon-tuichu::before {
   font-size: 0.4rem;
 }
 
@@ -481,8 +489,9 @@ header {
 
 .o-popup {
   width: 92%;
-  height: 10rem;
-  margin: 0 auto;
+  min-height: 6rem;
+  max-height: 10rem;
+  overflow: scroll;
   background-color: #fff;
   border-radius: .1rem;
   position: relative;
@@ -511,6 +520,9 @@ header {
 
 .o-popup-bottom {
   position: fixed;
+  min-height: 6rem;
+  max-height: 8rem;
+  overflow: scroll;
   bottom: 0;
   width: 100%;
   border-radius: .1rem .1rem 0 0;
