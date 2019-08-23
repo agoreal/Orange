@@ -2,9 +2,9 @@
 ============================================
 *  Description: 觅诚项目样式库
 *  Author: 张功睿
-*  Version: 1.1.0
+*  Version: 1.2.0
 *  Edit: 2019-08-11 14:40
-*  LastEdit: 2019-08-20 11:23
+*  LastEdit: 2019-08-23 16:14
 ============================================
 */
 
@@ -528,6 +528,75 @@ body {
   border-radius: .1rem .1rem 0 0;
 }
 
+/* o-switch
+============================================ */
+.o-switch {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.o-switch-label {
+  margin-left: .1rem;
+  display: inline;
+}
+
+.o-switch-label:empty {
+  margin-left: 0;
+}
+
+.o-switch-core {
+  display: inline-block;
+  position: relative;
+  width: .86rem;
+  height: .4rem;
+  border: 1px solid #f6f6f6;
+  border-radius: .2rem;
+  box-sizing: border-box;
+  background-color: #f6f6f6;
+}
+
+.o-switch-core::after,
+.o-switch-core::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: transform .3s;
+  border-radius: .2rem;
+}
+
+.o-switch-core::after {
+  width: .36rem;
+  height: .36rem;
+  background-color: #fff;
+  box-shadow: 0 .01rem .03rem rgba(0, 0, 0, .4);
+}
+
+.o-switch-core::before {
+  width: .82rem;
+  height: .36rem;
+  background-color: #fdfdfd;
+}
+
+.o-switch-input {
+  display: none;
+}
+
+.o-switch-input:checked+.o-switch-core {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+}
+
+.o-switch-input:checked+.o-switch-core::before {
+  transform: scale(0);
+}
+
+.o-switch-input:checked+.o-switch-core::after {
+  transform: translateX(.5rem);
+}
 
 /* 动画
 ============================================================ */
