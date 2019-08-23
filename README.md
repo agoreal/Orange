@@ -272,3 +272,26 @@ Events
 |事件名|说明|
 |---|---|
 |close|关闭弹窗与遮罩层|
+
+### Switch
+#### 基本用法
+```
+<o-switch v-model="value"></o-switch>
+```
+
+#### API
+Props
+
+|参数|说明|类型|可选值|默认值|
+|---|---|---|---|---|
+|value|绑定值|Boolean|-|-|
+
+#### Event
+|事件名|返回值|
+|---|---|
+|change|checked:Boolean|
+
+#### Slot
+|name|描述|
+|---|---|
+|-|显示内容|
