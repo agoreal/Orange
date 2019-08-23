@@ -2,9 +2,9 @@
 ============================================
 *  Description: 觅诚项目组件库
 *  Author: 张功睿
-*  Version: 1.1.0
+*  Version: 1.2.0
 *  Edit: 2019-08-12 10:49
-*  LastEdit: 2019-08-20 11:23
+*  LastEdit: 2019-08-23 16:14
 ============================================
 */
 var templates = {}
@@ -218,7 +218,19 @@ templates.oPopup = ['\
     </div>\
   </o-mask>\
 ']
-
+templates.oSwitch = ['\
+  <label class="o-switch">\
+    <input\
+      class="o-switch-input"\
+      :disabled="disabled"\
+      @change="$emit(\'change\', currentValue)"\
+      type="checkbox"\
+      v-model="currentValue"\
+    >\
+    <span class="o-switch-core"></span>\
+    <div class="o-switch-label><slot></slot></div>"\
+  </label>\
+']
 
 Vue.component('o-header', {
   template: templates.oHeader[0],
@@ -425,5 +437,23 @@ Vue.component('o-popup', {
       }
     },
     title: String
+  }
+})
+
+Vue.component('o-switch', {
+  template: templates.oSwitch[0],
+  props: {
+    value: Boolean,
+    disabled: Boolean
+  },
+  computed: {
+    currentValue: {
+      get: function () {
+        return this.value
+      },
+      set: function(val) {
+        this.$emit('input', val)
+      }
+    }
   }
 })
