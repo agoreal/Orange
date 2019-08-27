@@ -2,9 +2,9 @@
 ============================================
 *  Description: 觅诚项目样式库
 *  Author: 张功睿
-*  Version: 1.2.0
+*  Version: 1.2.1
 *  Edit: 2019-08-11 14:40
-*  LastEdit: 2019-08-23 16:14
+*  LastEdit: 2019-08-27 17:28
 ============================================
 */
 
@@ -539,10 +539,12 @@ body {
 .o-switch-label {
   margin-left: .1rem;
   display: inline;
+  pointer-events: none;
 }
 
 .o-switch-label:empty {
   margin-left: 0;
+  pointer-events: none;
 }
 
 .o-switch-core {
@@ -554,6 +556,7 @@ body {
   border-radius: .2rem;
   box-sizing: border-box;
   background-color: #f6f6f6;
+  pointer-events: none;
 }
 
 .o-switch-core::after,
@@ -566,6 +569,7 @@ body {
   right: 0;
   transition: transform .3s;
   border-radius: .2rem;
+  pointer-events: none;
 }
 
 .o-switch-core::after {
@@ -573,12 +577,14 @@ body {
   height: .36rem;
   background-color: #fff;
   box-shadow: 0 .01rem .03rem rgba(0, 0, 0, .4);
+  pointer-events: none;
 }
 
 .o-switch-core::before {
   width: .82rem;
   height: .36rem;
   background-color: #fdfdfd;
+  pointer-events: none;
 }
 
 .o-switch-input {
@@ -588,14 +594,17 @@ body {
 .o-switch-input:checked+.o-switch-core {
   border-color: var(--primary-color);
   background-color: var(--primary-color);
+  pointer-events: none;
 }
 
 .o-switch-input:checked+.o-switch-core::before {
   transform: scale(0);
+  pointer-events: none;
 }
 
 .o-switch-input:checked+.o-switch-core::after {
   transform: translateX(.5rem);
+  pointer-events: none;
 }
 
 /* 动画
