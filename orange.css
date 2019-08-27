@@ -425,6 +425,10 @@ body {
   color: #dbdbdb;
 }
 
+.o-checkbox-icon {
+  pointer-events: none;
+}
+
 /* o-avatar
 ============================================ */
 
