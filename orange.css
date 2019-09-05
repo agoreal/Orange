@@ -2,139 +2,11 @@
 ============================================
 *  Description: 觅诚项目样式库
 *  Author: 张功睿
-*  Version: 1.2.2
+*  Version: 1.2.3
 *  Edit: 2019-08-11 14:40
-*  LastEdit: 2019-08-27 18:01
+*  LastEdit: 2019-09-05 15:00
 ============================================
 */
-
-/* 基础设置
-============================================ */
-
-:root {
-  /* color */
-  --primary-color: #f8cf65;
-  --primary-light-color: #f5d480;
-  --orange: #e5931e;
-  --light-red: #e26a6a;
-  --green: #4caf50;
-  --yellow: #ffc107;
-  /* text */
-  --major-text: #242424;
-  --helper-text: #666666;
-  --disable-text: #a1a1a1;
-  /* font */
-  --font-l: 0.36rem;
-  --font-m: 0.26rem;
-  --font-s: 0.20rem;
-}
-
-.font-orange {
-  color: var(--orange);
-}
-
-.font-blue {
-  color: var(--blue);
-}
-
-.font-red {
-  color: var(--light-red)
-}
-
-.bg-blue {
-  background-color: var(--blue);
-}
-
-.font-m {
-  font-size: var(--font-m);
-}
-
-/* 根元素设置
-============================================ */
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-  font-size: var(--font-m);
-  color: var(--major-text);
-}
-
-[v-cloack] {
-  display: none;
-}
-
-/* 容器
-============================================ */
-
-.wrap {
-  margin: 0 0.3rem;
-}
-
-/* 阴影
-============================================ */
-
-.box-shadow {
-  box-shadow: 0 0 0.15rem 0 rgba(175, 175, 175, 0.25);
-}
-
-/* 弹性布局
-============================================ */
-
-/* 默认水平方向 */
-
-.flex {
-  display: flex;
-}
-
-/* 垂直方向 */
-
-.flex-y {
-  display: flex;
-  flex-direction: column;
-}
-
-/* 水平居中 */
-
-.flex-x-c {
-  display: flex;
-  justify-content: center;
-}
-
-/* 水平两端对齐 */
-
-.flex-x-b {
-  display: flex;
-  justify-content: space-between;
-}
-
-/* 水平平均分布 */
-
-.flex-x-a {
-  display: flex;
-  justify-content: space-around;
-}
-
-.flex-aic {
-  display: flex;
-  align-items: center;
-}
-
-/* 垂直居中 */
-
-.flex-y-c {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* 水平垂直居中 */
-
-.flex-c {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 /* o-header
 ============================================ */
@@ -172,6 +44,7 @@ body {
   position: absolute;
   right: 0;
   padding-right: 0.3rem;
+  z-index: 2;
 }
 
 .o-header-btn {
@@ -265,6 +138,9 @@ body {
 }
 
 /* 颜色 */
+.o-button--primary {
+  background-color: var(--primary-color);
+}
 
 .o-button--blue {
   background-color: var(--blue);
@@ -315,7 +191,12 @@ body {
   border: 1px solid var(--light-red);
 }
 
-/* o-tab-card
+.o-button-plain.o-button--primary {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+/* o-field
 ============================================ */
 
 /* 基础 */
@@ -349,6 +230,7 @@ body {
 .o-field-value {
   display: flex;
   flex: 1;
+  align-items: center;
   padding: .3rem .2rem;
   background-color: #fff;
 }
@@ -418,7 +300,7 @@ body {
 
 .o-checkbox-icon .iconfont {
   font-size: .38rem;
-  color: var(--blue);
+  color: var(--primary-color);
 }
 
 .o-checkbox-icon .icon-quan {
@@ -435,8 +317,9 @@ body {
 /* 基础 */
 
 .o-avatar {
+  position: relative;
   border-radius: 50%;
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: #fff;
 }
 
@@ -457,6 +340,24 @@ body {
   height: 0.64rem;
 }
 
+.o-avatar-large img {
+  width: 1.28rem;
+  height: 1.28rem;
+  border-radius: 50%;
+}
+
+.o-avatar-normal img {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+}
+
+.o-avatar-small img {
+  width: 0.64rem;
+  height: 0.64rem;
+  border-radius: 50%;
+}
+
 /* 默认头像 */
 
 .o-avatar-default {
@@ -473,6 +374,30 @@ body {
 
 .o-avatar-small i::before {
   font-size: 0.3rem;
+}
+
+.o-avatar-large {
+  width: 1.28rem;
+  height: 1.28rem;
+  border-radius: 50%;
+}
+
+.o-avatar-normal {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+}
+
+.o-avatar-small {
+  width: 0.64rem;
+  height: 0.64rem;
+  border-radius: 50%;
+}
+
+.o-avatar-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 /* o-mask
@@ -493,8 +418,6 @@ body {
 
 .o-popup {
   width: 92%;
-  min-height: 6rem;
-  max-height: 10rem;
   overflow: scroll;
   background-color: #fff;
   border-radius: .1rem;
@@ -524,12 +447,66 @@ body {
 
 .o-popup-bottom {
   position: fixed;
-  min-height: 6rem;
-  max-height: 8rem;
   overflow: scroll;
   bottom: 0;
   width: 100%;
   border-radius: .1rem .1rem 0 0;
+}
+
+.o-popup-left {
+  position: fixed;
+  left: 0;
+  height: 100%;
+  border-radius: 0;
+}
+
+.o-popup-right {
+  position: fixed;
+  right: 0;
+  height: 100%;
+  border-radius: 0;
+}
+
+/* o-cell
+============================================ */
+.o-cell {
+  width: 100%;
+  position: relative;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+}
+
+.o-cell[data-type="0"] {
+  transform: translate3d(0,0,0);
+}
+
+.o-cell[data-type="1"] {
+  transform: translate3d(-1.4rem,0,0);
+}
+
+.o-cell-box {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.o-cell-content {
+  width: 100%;
+  flex: 1;
+  flex-shrink: 0;
+}
+
+.o-cell-right {
+  position: absolute;
+  /* top:0; */
+  /* bottom: 0; */
+  right: -1.4rem;
+  background-color: #ff4835;
+  color: #fff;
+  width: 1.4rem;
+  padding: .3rem 0;
 }
 
 /* o-switch
